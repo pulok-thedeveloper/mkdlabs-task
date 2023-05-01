@@ -13,9 +13,14 @@ const initialState = {
 const reducer = (state, action) => {
   switch (action.type) {
     case "LOGIN":
-      //TODO
+      console.log(state);
       return {
         ...state,
+        demo: "hello",
+        isAuthenticated: true,
+        user: action.payload.user_id,
+        token: action.payload.token.toString(),
+        role: action.payload.role.toString(),
       };
     case "LOGOUT":
       localStorage.clear();
@@ -45,7 +50,12 @@ const AuthProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   React.useEffect(() => {
-    //TODO
+    sdk
+      .check(state.role)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
   }, []);
 
   return (

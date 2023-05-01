@@ -42,7 +42,7 @@ export const showToast = (dispatch, message, timeout = 3000) => {
     dispatch({
       type: "SNACKBAR",
       payload: {
-        message: "",
+        message: "Login Successful",
       },
     });
   }, timeout);
