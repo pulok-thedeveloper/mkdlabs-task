@@ -54,7 +54,7 @@ export default function MkdSDK() {
     switch (method) {
       case "GET":
         const getResult = await fetch(
-          this._baseurl + `/v1/api/rest/${this._table}/GET`,
+          this._baseurl + `/v1/api/rest/video/PAGINATE`,
           {
             method: "post",
             headers: header,
